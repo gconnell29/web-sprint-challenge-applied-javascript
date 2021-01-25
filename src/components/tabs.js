@@ -38,7 +38,7 @@ const tabsAppender = (selector) => {
     document.querySelector(selector).appendChild(Tabs(apiTopics));
   })
   .catch(err => {
-    // console.log('not working')
+    console.log('not working')
   })
 }
 
