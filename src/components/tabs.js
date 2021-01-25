@@ -12,16 +12,16 @@
   //   <div class="tab">technology</div>
   // </div>
   //
-let Item = document.createElement('div');
 const Tabs = (topics) => {
   let topicsCont = document.createElement('div');
   topicsCont.classList.add('topics');
   topics.forEach(topic => {
     let topicElem = document.createElement('div');
     topicElem.classList.add('tab');
-    topicElem.textContent(topic);
+    topicElem.textContent = topic;
     topicsCont.appendChild(topicElem);
   });
+  console.log(topicsCont);
   return topicsCont;
 }
 
@@ -33,6 +33,15 @@ const Tabs = (topics) => {
 // Append the tabs to the element in the DOM that matches the selector passed to the function.
 //
 const tabsAppender = (selector) => {
+  axios.get('https://lambda-times-api.herokuapp.com/topics')
+  .then(res => {
+    let apiTopics = res.data.topics;
+    console.log(Tabs(apiTopics));
+    document.querySelector(selector).appendChild(Tabs(apiTopics));
+  })
+  .catch(err => {
+    // console.log('not working')
+  })
 }
 
 export { Tabs, tabsAppender }
