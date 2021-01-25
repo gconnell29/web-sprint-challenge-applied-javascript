@@ -21,7 +21,6 @@ const Tabs = (topics) => {
     topicElem.textContent = topic;
     topicsCont.appendChild(topicElem);
   });
-  console.log(topicsCont);
   return topicsCont;
 }
 

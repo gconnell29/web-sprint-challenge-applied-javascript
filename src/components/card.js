@@ -15,8 +15,32 @@
   //     <span>By { authorName }</span>
   //   </div>
   // </div>
+
+import { headerAppender } from "./header";
+
   //
 const Card = (article) => {
+  let card = document.createElement('div');
+  let  headline = document.createElement('div');
+  let author = document.createElement('div');
+  let imgCont = document.createElement('div');
+  let img = document.createElement('img');
+  let authorName = document.createElement('span');
+  // assign classes
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgCont.classList.add('img-container');
+  // populate contents
+  headline.textContent = article.headline;
+  authorName.textContent = article.authorName;
+  img.src = article.authorPhoto;
+  // appendings
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgCont);
+  imgCont.appendChild(img);
+  author.appendChild(authorName);
+  return card;
 }
 
 // TASK 6
