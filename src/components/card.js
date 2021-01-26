@@ -55,8 +55,13 @@ const cardAppender = (selector) => {
   axios.get('https://lambda-times-api.herokuapp.com/articles')
   .then(res => {
     let articles = res.data.articles;
-    console.log(articles);
-    // for(let i = 0; i <= articles.length; i++) {}
+    const articleKeys = Object.keys(articles);
+    for (let i = 0; i < articleKeys.length; i++) {
+      articles[articleKeys[i]].forEach(element => {
+        document.querySelector(selector).appendChild(Card(element));
+        console.log(element);
+      }); // close foreach
+    }; // close for loop
   })
   .catch(err => {
     console.error(err)
