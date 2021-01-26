@@ -21,7 +21,6 @@ const Tabs = (topics) => {
     topicElem.textContent = topic;
     topicsCont.appendChild(topicElem);
   });
-  console.log(topicsCont);
   return topicsCont;
 }
 
@@ -39,7 +38,7 @@ const tabsAppender = (selector) => {
     document.querySelector(selector).appendChild(Tabs(apiTopics));
   })
   .catch(err => {
-    // console.log('not working')
+    console.log('not working')
   })
 }
 
